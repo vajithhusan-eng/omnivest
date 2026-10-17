@@ -26,8 +26,11 @@ jobs:
 
       # No server needed: the dataset is synthetic and deterministic, so this
       # proves the forensics math and the watch-loop rules, not the HTTP layer.
+      # `working-directory` matters: the tests import `app.*`, so `backend/` has
+      # to be the cwd (or be on PYTHONPATH) for collection to succeed.
       - name: Unit checks
-        run: pytest backend/app/tests -q
+        run: python -m pytest app/tests -q
+        working-directory: backend
 
   frontend:
     name: frontend analyze + test
