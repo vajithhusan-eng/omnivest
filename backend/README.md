@@ -10,8 +10,9 @@ The API behind the OMNIVEST terminal: **free knowledge, self-analytics and a
 journal you can correct**. Python + FastAPI, no database server — the journal is
 a JSON file on disk.
 
-> OMNIVEST is the older product in this monorepo. It is **not** Agora, rgx or
-> CleanTube, which live under `projects/`; it shares the repo, not the stack.
+> This half of the repository is the service; the UI lives in
+> [`../frontend/`](../frontend/). They share the wire contract, not the stack —
+> the service is Python, the client is Dart.
 
 ## What it is
 

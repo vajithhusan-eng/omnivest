@@ -28,5 +28,3 @@ code, because that is where they can go wrong:
 - The service this client calls: [`../backend/`](../backend/) — its README
   documents the 31 routes and the SAFE-mode guardrails the UI must respect.
 - If you add a document here, put it in the table above.
-  `scripts/verify_projects.py` fails the build when a top-level Markdown file is
-  not named in this index.

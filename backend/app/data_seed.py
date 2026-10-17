@@ -1,5 +1,6 @@
 """Seed data — canon, SEBI stats, starter books/channels, techniques.
-All numbers are from verified research (see projects/omnivest/PLAN.md).
+
+All numbers are from verified research and are canon: do not invent replacements.
 """
 
 from __future__ import annotations

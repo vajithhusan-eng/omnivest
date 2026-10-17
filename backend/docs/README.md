@@ -23,5 +23,4 @@ design decisions that matter are documented **at the point of code**:
 | Why every write has an undo | `_delete_entries_where` docstring in `app/main.py` |
 | Why synthetic bars are labelled | `app/market.py` and the `NO_DATA` path in `app/strategy.py` |
 
-If you add a document here, put it in this table. `scripts/verify_projects.py`
-fails the build when a top-level Markdown file is not named in this index.
+If you add a document here, put it in this table.

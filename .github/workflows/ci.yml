@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: backend unit checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r backend/requirements.txt pytest
+
+      # No server needed: the dataset is synthetic and deterministic, so this
+      # proves the forensics math and the watch-loop rules, not the HTTP layer.
+      - name: Unit checks
+        run: pytest backend/app/tests -q
+
+  frontend:
+    name: frontend analyze + test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Resolve dependencies
+        run: flutter pub get
+        working-directory: frontend
+
+      - name: Analyze
+        run: flutter analyze
+        working-directory: frontend
+
+      - name: Test
+        run: flutter test
+        working-directory: frontend
