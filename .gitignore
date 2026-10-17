@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+*.egg-info/
+.coverage
+htmlcov/
+
+# Runtime state, not source: the journal is written by the running service.
+# `make clean` removes it.
+backend/omnivest_journal.json
